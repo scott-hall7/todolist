@@ -8,7 +8,32 @@ body    {
 
 .header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: rgba(82, 180, 212, 0.575);
+    justify-content: center;
+    background-color: rgba(152, 214, 176, 0.575);
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(230, 223, 215, 0.575);
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.footer a h4:hover {
+    text-decoration: underline;
+}
+
+.footer a img:hover{
+    transform: scale(1.2);
 }
