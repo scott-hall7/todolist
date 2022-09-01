@@ -1,13 +1,19 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
 
-html, body    {
-    font-family: 'Open Sans', sans-serif;
-    padding: 0px;
-    margin: 0px;
-    height: 100vh;
-    width: 100vw;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
+
+html  {
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    min-height: 100%;
+}
 
 .header {
     display: flex;
@@ -17,34 +23,37 @@ html, body    {
 }
 
 .main   {
-    display: flex;
-}
-
-.content    {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start
+    display: grid;
+    grid-template-columns: 25% 75%;
+    min-height: calc(100vh - 109.5px);
 }
 
 .sidebar    {
     display: flex;
+    padding-top: 50px;
     flex-direction: column;
     align-items: center;
-    width: 25%;
     background-color: rgb(241, 232, 221);
-    height: 100%;
+}
+
+.content    {
+    display: flex;
+    padding-top: 50px;
+    justify-content: center;
+    background-color: chartreuse;
 }
 
 .footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
+    position: fixed; 
+    bottom: 0; 
     left: 0;
+    display: flex;
     width: 100%;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     background-color:#F89068;
+    padding: 5px 0px;
 }
 
 .footer h4 a {
