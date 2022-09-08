@@ -24,23 +24,58 @@ html  {
 
 .main   {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 1.5fr 5fr;
     min-height: calc(100vh - 109.5px);
 }
 
 .sidebar    {
     display: flex;
-    padding-top: 50px;
     flex-direction: column;
     align-items: center;
+    padding-top: 50px;
     background-color: rgb(241, 232, 221);
+}
+
+#generalnav {
+    height: 10%;
+    width: 75%;
+}
+
+
+#general-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 5px; 
+    border: none;
+    background-color: rgb(223, 210, 195);
+    font-size: 1.5em;
+    border-radius: 5px;
+    padding: 5px 5px;
+}
+
+#general-button:hover   {
+    cursor: pointer;
+    background-color: rgb(207, 188, 162);
+}
+
+
+
+#projectnav {
+    height: 90%;
+    padding-top: 30px;
+}
+
+#projectnav h2 {
+    text-align: center;
+    text-decoration: underline;
 }
 
 .content    {
     display: flex;
     padding-top: 50px;
     justify-content: center;
-    background-color: chartreuse;
 }
 
 .footer {
