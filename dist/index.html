@@ -4,14 +4,17 @@
     <meta charset="utf-8" />
     <title>To Do List</title>
     <script src="main.js" defer></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=OpenSans">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=OpenSans"
+    />
   </head>
   <body>
     <!--Header-->
     <header class="header">
       <div id="headerlogo">
-        <img src="../src/images/badge.png" alt="checkmark">
+        <img src="../src/images/badge.png" alt="checkmark" />
       </div>
       <div id="headertext">
         <h1>To Do It</h1>
@@ -19,27 +22,109 @@
     </header>
 
     <!--Main Content-->
-    <main class="main1">
-      <div class="main">
-      <div class="sidebar">
-        <div id="generalnav">
-          <button type="submit" id="general-button">General</button>
-        </div>
-        <div id="projectnav">
-          <h2>Projects</h2>
-          <div id="projects"></div>
+    <main>
+      <div class="main-content">
+        <div class="sidebar">
+          <div id="generalnav">
+            <button type="submit" class="project-button">
+              <img
+                src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
+                class="dot"
+                alt="dot"
+              />General To Dos
+            </button>
+            <h1>Projects</h1>
+              <div id="projects"></div>
+              <button type="submit" class="project-button">
+                <img
+                  src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
+                  class="dot"
+                  alt="dot"
+                />Programming
+              </button>
+              <button type="submit" class="project-button">
+                <img
+                  src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
+                  class="dot"
+                  alt="dot"
+                />Youtube Videos
+              </button>
+              <button type="submit" class="project-button">
+                <img
+                  src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
+                  class="dot"
+                  alt="dot"
+                />Programming
+              </button>
+              <button type="submit" class="project-button">
+                <img
+                  src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
+                  class="dot"
+                  alt="dot"
+                />Youtube Videos
+              </button>
+              <button type="submit" class="project-button">
+                <img
+                  src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
+                  class="dot"
+                  alt="dot"
+                />Programming
+              </button>
+              <button type="submit" class="project-button">
+                <img
+                  src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
+                  class="dot"
+                  alt="dot"
+                />Youtube Videos
+              </button>
+              <button type="submit" class="project-button">
+                <img
+                  src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
+                  class="dot"
+                  alt="dot"
+                />Programming
+              </button>
+              <div id="add-project">
+                <button
+                  type="submit"
+                  class="project-button"
+                  id="add-project-button"
+                > + Add Project
+                </button>
+                <div id="add-project-input">
+                  <input type="text" id="project-input" placeholder="Project Name">
+                    <div id="project-input-buttons">
+                      <button type="submit" id="project-add-button" class="project-input-button">Add</button>
+                      <button type="submit" id="project-cancel-button" class="project-input-button">Cancel</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content">
+            <div id="project-title">
+              <h1>General</h1>
+            </div>
+            <div id="project-tasks"></div>
+            <div id="add-task">
+              <button
+                type="submit"
+                id="add-task-button"
+              > + Add Task
+              </button>
+              <div id="add-task-input">
+                <input type="text" id="task-input" placeholder="Task Name">
+                  <div id="task-input-buttons">
+                    <button type="submit" id="task-add-button" class="task-input-button">Add</button>
+                    <button type="submit" id="task-cancel-button" class="task-input-button"">Cancel</button>
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="content">
-        <div id="projec-title">
-          <h2>General</h2>
-        </div>
-        <div id="project-tasks">
-        </div>
-      </div>
-    </div>
     </main>
-    
+
     <!--Footer-->
     <footer class="footer">
       <div class="footertext">
@@ -47,9 +132,8 @@
           <a href="https://github.com/scott-hall7">Created By: scott-hall7</a>
         </h4>
       </div>
-      <div class="footerlogo">
-      </div>
-        <img src="../src/images/github-logo.png" alt="github logo">
+      <div class="footerlogo"></div>
+      <img src="../src/images/github-logo.png" alt="github logo" />
     </footer>
   </body>
 </html>
