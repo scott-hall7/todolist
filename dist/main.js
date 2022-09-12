@@ -7,7 +7,7 @@ const addTaskInput = document.getElementById("add-task-input");
 const taskInputButtons = document.querySelectorAll(".task-input-button");
 
 
-//When Add button is clicked, hide button and display project input.
+//When Add project button is clicked, hide button and display project input.
 addProjectButton.addEventListener('click', () =>    {
     addProjectButton.style.display = 'none';
     addProjectInput.style.display = 'flex';
@@ -22,13 +22,14 @@ projectInputButtons.forEach(button  =>  {
     });
 });
 
+//When Add task button is clicked, hide button and display task input.
 addTaskButton.addEventListener('click', () =>    {
     addTaskButton.style.display = 'none';
     addTaskInput.style.display = 'flex';
 
 });
 
-//When either button is clicked, hide project input and display button.
+//When either button is clicked, hide task input and display button.
 taskInputButtons.forEach(button  =>  {
     button.addEventListener('click', () => {
         addTaskButton.style.display = 'flex';

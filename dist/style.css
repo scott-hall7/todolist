@@ -135,6 +135,47 @@ html {
   margin: 40px 150px;
 }
 
+#project-tasks  {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 10px
+}
+
+.fakeproject    {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.15em;
+    width: 80%;
+    background-color: rgb(233, 233, 233);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.fakeproject-left   {
+    display: flex;
+    gap: 10px;
+}
+
+.fakeproject-right  {
+    display: flex;
+    gap: 10px;
+}
+
+.taskremove {
+    background-color: white;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 2px;
+    padding:2px;
+}
+
+.taskremove:hover   {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
 #add-task   {
     margin-top: 30px;
 }
@@ -142,7 +183,7 @@ html {
 #add-task-button    {
     display: flex;
     justify-content: center;
-    width: 75%;
+    width: 80%;
     border: none;
     font-size: 1.15em;
     border-radius: 5px;
