@@ -19,6 +19,11 @@
       <div id="headertext">
         <h1>To Do It</h1>
       </div>
+      <div id="hamburger-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </header>
 
     <!--Main Content-->
@@ -31,7 +36,7 @@
                 src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
                 class="dot"
                 alt="dot"
-              />General To Dos
+              />All Tasks
             </button>
             <h1>Projects</h1>
               <div id="projects"> <!-- Where Projects will be added-->
@@ -48,41 +53,6 @@
                     class="dot"
                     alt="dot"
                   />Youtube Videos
-                </button>
-                <button type="submit" class="project-button">
-                  <img
-                    src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
-                    class="dot"
-                    alt="dot"
-                  />Programming
-                </button>
-                <button type="submit" class="project-button">
-                  <img
-                    src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
-                    class="dot"
-                    alt="dot"
-                  />Youtube Videos
-                </button>
-                <button type="submit" class="project-button">
-                  <img
-                    src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
-                    class="dot"
-                    alt="dot"
-                  />Programming
-                </button>
-                <button type="submit" class="project-button">
-                  <img
-                    src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
-                    class="dot"
-                    alt="dot"
-                  />Youtube Videos
-                </button>
-                <button type="submit" class="project-button">
-                  <img
-                    src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
-                    class="dot"
-                    alt="dot"
-                  />Programming
                 </button>
               </div> 
               <div id="add-project">
@@ -104,7 +74,19 @@
           </div>
           <div class="content">
             <div id="project-title">
-              <h1>General</h1>
+              <h1>All Tasks</h1>
+              <div id="active-project-buttons">
+                <button
+                  type="submit"
+                  id="edit-project-button"
+                ><img src="../src/images/edit_FILL0_wght400_GRAD0_opsz48.png" id="editimage" alt="editimage">
+                </button>
+                <button
+                  type="submit"
+                  id="delete-project-button"
+                > X
+                </button>
+              </div>
             </div>
             <div id="project-tasks">  <!-- Where Tasks will be added-->
               <div class = "fakeproject">

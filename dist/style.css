@@ -14,14 +14,32 @@ html {
   min-height: 100%;
 }
 
-.header {
+.header {   
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(152, 214, 176, 0.575);
+  width: 100%;
+  min-width: 100%;
 }
 
+#hamburger-menu {
+    position: absolute;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
 
+#hamburger-menu .bar    {
+    height: 5px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
 
 .main-content {
   display: grid;
@@ -36,6 +54,7 @@ html {
   flex-direction: column;
   padding-top: 50px;
   background-color: rgb(241, 232, 221);
+  min-width: 200px;
 }
 
 #generalnav {
@@ -64,7 +83,7 @@ html {
 }
 
 .dot {
-  width: 10%;
+  width: 5%;
 }
 
 #generalnav h1 {
@@ -132,7 +151,23 @@ html {
 .content {
   display: flex;
   flex-direction: column;
-  margin: 40px 150px;
+  margin: 40px 100px;
+  min-width: 300px;
+}
+
+#project-title  {
+    display: flex;
+    justify-content: space-between;
+}
+
+#active-project-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#editimage  {
+    width: 30px;
 }
 
 #project-tasks  {
@@ -146,8 +181,8 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 1.15em;
-    width: 80%;
+    font-size: 1em;
+    width: 100%;
     background-color: rgb(233, 233, 233);
     padding: 5px 10px;
     border-radius: 5px;
@@ -164,15 +199,15 @@ html {
 }
 
 .taskremove {
-    background-color: white;
-    border: 1px solid rgb(192, 192, 192);
-    border-radius: 2px;
-    padding:2px;
+    padding: 2px;
+    border: 0;
+    background-color: rgb(233, 233, 233);
+
 }
 
 .taskremove:hover   {
     cursor: pointer;
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 
@@ -183,12 +218,46 @@ html {
 #add-task-button    {
     display: flex;
     justify-content: center;
-    width: 80%;
+    align-items: center;
+    width: 25%;
     border: none;
     font-size: 1.15em;
     border-radius: 5px;
     padding: 5px 0px;
     background-color: rgb(231, 231, 231);
+}
+
+#edit-project-button    {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    font-size: 1.15em;
+    border-radius: 5px;
+    background-color: #d3d3d3;
+}
+
+#edit-project-button:hover    {
+    cursor: pointer;
+    background-color: #c2c2c2;
+    transform: scale(1.1);
+}
+
+#delete-project-button    {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    padding: 0px 14px;
+    background-color: #f89068;
+}
+
+#delete-project-button:hover   {
+    cursor: pointer;
+    background-color: #e4855f;
+    transform: scale(1.1);
 }
 
 #add-task-button:hover  {
@@ -198,7 +267,7 @@ html {
 
 #add-task-input {
     display: none;
-    width: 75%;
+    width: 100%;
     flex-direction: column;
     padding: 15px;
     background-color: rgb(231, 231, 231);
@@ -259,4 +328,29 @@ html {
 
 .footer h4 a:hover {
   text-decoration: underline;
+}
+
+/* Media Query for hamburger menu */
+
+@media (max-width: 700px)   {
+    #hamburger-menu {
+        display: flex;
+    }
+    .sidebar    {
+    }
+
+    #generalnav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-items: center;
+    }
+
+    .main-content   {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
 }
