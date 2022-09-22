@@ -14,15 +14,17 @@
     <!--Header-->
     <header class="header">
       <div id="headerlogo">
-        <img src="../src/images/badge.png" alt="checkmark" />
+        <img src="images/badge.png" alt="checkmark" />
       </div>
       <div id="headertext">
         <h1>To Do It</h1>
       </div>
+      <!-- Responsive menu | will add once available
       <div id="hamburger-menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
+      -->
       </div>
     </header>
 
@@ -31,34 +33,20 @@
       <div class="main-content">
         <div class="sidebar">
           <div id="generalnav">
-            <button type="submit" class="project-button">
+            <button type="submit" class="project-button" id="all-tasks-button">
               <img
-                src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
+                src="images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
                 class="dot"
                 alt="dot"
               />All Tasks
             </button>
             <h1>Projects</h1>
               <div id="projects"> <!-- Where Projects will be added-->
-                <button type="submit" class="project-button">
-                  <img
-                    src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
-                    class="dot"
-                    alt="dot"
-                  />Programming
-                </button>
-                <button type="submit" class="project-button">
-                  <img
-                    src="../src/images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
-                    class="dot"
-                    alt="dot"
-                  />Youtube Videos
-                </button>
               </div> 
               <div id="add-project">
                 <button
                   type="submit"
-                  class="project-button"
+                  class="add-project-button"
                   id="add-project-button"
                 > + Add Project
                 </button>
@@ -74,12 +62,16 @@
           </div>
           <div class="content">
             <div id="project-title">
-              <h1>All Tasks</h1>
+              <h1 id="project-display-name">All Tasks</h1>
+              <div id="edit-project-info">
+                <input type="text" id="update-projectname-input" placeholder="Project Name">
+                <button type="submit" id="update-projectname-button">Update</button>
+              </div>
               <div id="active-project-buttons">
                 <button
                   type="submit"
                   id="edit-project-button"
-                ><img src="../src/images/edit_FILL0_wght400_GRAD0_opsz48.png" id="editimage" alt="editimage">
+                ><img src="images/edit_FILL0_wght400_GRAD0_opsz48.png" id="editimage" alt="editimage">
                 </button>
                 <button
                   type="submit"
@@ -89,26 +81,6 @@
               </div>
             </div>
             <div id="project-tasks">  <!-- Where Tasks will be added-->
-              <div class = "fakeproject">
-                  <div class="fakeproject-left">
-                    <input type="checkbox" id="taskcheckbox">
-                    <p>Fake Tasks Name </p>
-                </div>
-                <div class="fakeproject-right">
-                  <input type="date" id="taskdate">
-                  <button type="submit" class="taskremove">X</button>
-                </div>
-              </div>
-              <div class = "fakeproject">
-                  <div class="fakeproject-left">
-                    <input type="checkbox" id="taskcheckbox">
-                    <p>Fake Task Name </p>
-                </div>
-                <div class="fakeproject-right">
-                  <input type="date" id="taskdate">
-                  <button type="submit" class="taskremove">X</button>
-                </div>
-              </div>
             </div>
             <div id="add-task">
               <button
@@ -137,7 +109,7 @@
         </h4>
       </div>
       <div class="footerlogo"></div>
-      <img src="../src/images/github-logo.png" alt="github logo" />
+      <img src="images/github-logo.png" alt="github logo" />
     </footer>
   </body>
 </html>

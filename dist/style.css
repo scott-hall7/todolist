@@ -14,6 +14,10 @@ html {
   min-height: 100%;
 }
 
+button:hover    {
+    cursor: pointer;
+}
+
 .header {   
   display: flex;
   align-items: center;
@@ -82,6 +86,10 @@ html {
   background-color: rgb(224, 214, 200);
 }
 
+.active-project {
+    background-color: rgb(224, 214, 200);;
+}
+
 .dot {
   width: 5%;
 }
@@ -96,13 +104,17 @@ html {
   display: flex;
   justify-content: center;
   width: 75%;
-  margin-top: 30px;
-  margin-bottom: 80px;
+  margin: 30px 0px 80px 20px;
   background-color:rgba(152, 214, 176, 0.575);
+  border: none;
+  font-size: 1.15em;
+  border-radius: 5px;
+  padding: 5px 0px;
 }
 
 #add-project-button:hover {
     background-color:rgba(126, 196, 153, 0.575);
+    cursor: pointer;
 }
 
 #add-project-input  {
@@ -146,6 +158,28 @@ html {
     background-color: #f89068;
 }
 
+#edit-project-info  {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+}
+
+#update-projectname-input {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 43px;
+}
+
+#update-projectname-button {
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 1.15em;
+    border-radius: 5px;
+}
+
 /* Main Tasks CSS */
 
 .content {
@@ -161,7 +195,7 @@ html {
 }
 
 #active-project-buttons {
-    display: flex;
+    display: none;
     justify-content: space-between;
     gap: 10px;
 }
@@ -216,7 +250,7 @@ html {
 }
 
 #add-task-button    {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     width: 25%;
@@ -229,7 +263,7 @@ html {
 
 #edit-project-button    {
     display: flex;
-    width: 100%;
+    justify-content: center;
     padding: 5px;
     border: none;
     font-size: 1.15em;
@@ -330,8 +364,8 @@ html {
   text-decoration: underline;
 }
 
-/* Media Query for hamburger menu */
 
+/* Media Query for hamburger menu
 @media (max-width: 700px)   {
     #hamburger-menu {
         display: flex;
@@ -354,3 +388,4 @@ html {
     }
 
 }
+*/
