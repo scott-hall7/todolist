@@ -11,40 +11,34 @@ const taskInputButtons = document.querySelectorAll(".task-input-button");
 
 const projectTitle = document.getElementById("project-display-name");
 
-
 const projectInput = document.getElementById("project-input");
 const projects = document.getElementById("projects");
 const addNewProject = document.getElementById("project-add-button");
-
 
 const taskInput = document.getElementById("task-input");
 const addNewTask = document.getElementById("task-add-button");
 const projectTasks = document.getElementById("project-tasks");
 
-
-
 //Edit and Delete Project Buttons
 const activeProjectButtons = document.getElementById("active-project-buttons");
 const editProject = document.getElementById("edit-project-button");
-const deleteProject = document.getElementById("delete-project-button")
+const deleteProjectButton = document.getElementById("delete-project-button")
 const editProjectItems = document.getElementById("edit-project-info")
 const editProjectNameInput = document.getElementById("update-projectname-input")
 const editProjectNameButton = document.getElementById("update-projectname-button")
 
-
-
-
 const allTasksButton = document.getElementById("all-tasks-button");
 allTasksButton.addEventListener('click', () =>  {
+    allTaskDisplay();
+})
+
+function allTaskDisplay()   {
     addTaskButton.style.display = 'none';
     activeProjectButtons.style.display = "none";
     projectTitle.textContent = "All Tasks";
     hideDisplayUpdateProject();
-
-})
-
-
-
+    projectTasks.innerHTML="";
+}
 
 //When Add project button is clicked, hide button and display project input.
 addProjectButton.addEventListener('click', () =>    {
@@ -74,6 +68,17 @@ taskInputButtons.forEach(button  =>  {
 editProject.addEventListener('click', () =>   {
     displayUpdateProject();
 })
+
+editProjectNameButton.addEventListener('click', () =>   {
+    updateProjectName();
+    clearInput();
+})
+
+deleteProjectButton.addEventListener('click', () => {
+    deleteProject();
+})
+
+
 
 //Functions for display.
 function displayProjectInput()  {
@@ -107,11 +112,8 @@ function hideDisplayUpdateProject() {
 function clearInput()    {
     projectInput.value = "";
     taskInput.value = "";
+    editProjectNameInput.value = "";
 }
-
-
-
-
 
 /* --- Project creation --- */
 const allProjects = [];
@@ -145,35 +147,57 @@ function makeNewProject(newProject) {
     displayProject(newProject);
 }
 
-function displayProject(projectName) {
-    let newButton = document.createElement('button');
-    newButton.type="submit";
-    newButton.className="project-button";
-    console.log(allProjects)
-    newButton.textContent = "-" + "  " + allProjects[allProjects.length - 1].title;
-    newButton.addEventListener('click', () =>   {
-        projectTitle.textContent = projectName;
-        addTaskButton.style.display = 'flex';
-        projectTasks.innerHTML="";
-        displayTaskButton();
-        setActiveProject();
-        hideDisplayUpdateProject()
-        activeProjectButtons.style.display = "flex";
-    })
-
+function displayProject() {
+    projects.innerHTML="";
+    allProjects.forEach(project =>  {
+        let newButton = document.createElement('button');
+        newButton.type="submit";
+        newButton.className="project-button";
+        newButton.textContent = "-" + "  " + project.title;
+        newButton.addEventListener('click', () =>   {
+            projectTitle.textContent = project.title;
+            addTaskButton.style.display = 'flex';
+            projectTasks.innerHTML="";
+            displayTaskButton();
+            setActiveProject();
+            hideDisplayUpdateProject()
+            activeProjectButtons.style.display = "flex";
+        })
     projects.appendChild(newButton)
+    })
     clearInput();
 }
 
 function setActiveProject() {
     let activeProject = projectTitle.textContent;
     let currentProject =  allProjects.find(project => project.title == activeProject);
-    displayTask(currentProject)
-    console.log(currentProject)
+    displayTask(currentProject); 
 }
 
+function updateProjectName()  {
+    let newProjectName = editProjectNameInput.value;
+    allProjects.forEach(project =>  {
+        if (project.title === projectTitle.textContent) {
+            project.title = newProjectName;
+            projectTitle.textContent = newProjectName;
+            projectTitle.textContent = newProjectName;
+        }
+    })
+    console.log(allProjects)
+    hideDisplayUpdateProject();
+    addTaskButton.style.display = "flex";
+    displayProject();
+}
 
-
+function deleteProject()    {
+    let projectStatus =  confirm("Are you sure you want to delete the current project?");
+    if (projectStatus == true)  {
+        let projectIndex = allProjects.findIndex((project) => project.title === projectTitle.textContent)
+        allProjects.splice(projectIndex, 1);
+        displayProject();
+        allTaskDisplay();
+    } else return;
+}
 
  /*--- Task creation ---*/ 
 class Task  {
@@ -202,8 +226,6 @@ function createTask()   {
         };
         let task = new Task(newTask, "", false);
         currentProject.tasks.push(task)
-        
-        
         //dom creation of projects
         displayTask(currentProject);
         clearInput();
