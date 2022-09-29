@@ -33,11 +33,13 @@ allTasksButton.addEventListener('click', () =>  {
 })
 
 function allTaskDisplay()   {
-    addTaskButton.style.display = 'none';
     activeProjectButtons.style.display = "none";
-    projectTitle.textContent = "All Tasks";
+    projectTitle.textContent = "General To Dos";
     hideDisplayUpdateProject();
     projectTasks.innerHTML="";
+    let activeProject = projectTitle.textContent;
+    let currentProject =  generalTasks.find(project => project.title == activeProject);
+    displayTask(currentProject); 
 }
 
 //When Add project button is clicked, hide button and display project input.
@@ -78,8 +80,6 @@ deleteProjectButton.addEventListener('click', () => {
     deleteProject();
 })
 
-
-
 //Functions for display.
 function displayProjectInput()  {
     addProjectButton.style.display = 'none';
@@ -116,6 +116,7 @@ function clearInput()    {
 }
 
 /* --- Project creation --- */
+const generalTasks =[];
 const allProjects = [];
 
 //Project creation on load.
@@ -125,9 +126,14 @@ class Project {
         this.tasks = tasks;
     }
 }
-const project = new Project("Make To Dos", []);
+
+let project = new Project("Make To Dos", []);
 allProjects.push(project);
-displayProject(project.title)
+project = new Project("General To Dos", []);
+generalTasks.push(project)
+console.log(generalTasks)
+
+displayProject();
 
 /* Reworking of project */
 addNewProject.addEventListener('click', () =>   {
@@ -180,7 +186,6 @@ function updateProjectName()  {
         if (project.title === projectTitle.textContent) {
             project.title = newProjectName;
             projectTitle.textContent = newProjectName;
-            projectTitle.textContent = newProjectName;
         }
     })
     console.log(allProjects)
@@ -201,10 +206,10 @@ function deleteProject()    {
 
  /*--- Task creation ---*/ 
 class Task  {
-    constructor (title, date, completed)   {
+    constructor (title, date, complete)   {
         this.title = title;
         this.date = date;
-        completed = false;
+        this.complete = complete;
     }
 }
 
@@ -215,15 +220,23 @@ addNewTask.addEventListener('click', () =>   {
 
 function createTask()   {
         let activeProject = projectTitle.textContent;
-        let currentProject =  allProjects.find(project => project.title == activeProject);
-        console.log(currentProject);
+        let currentProject;
+        if (activeProject == "General To Dos")  {
+            currentProject =  generalTasks[0]
+        } else {
+             currentProject =  allProjects.find(project => project.title == activeProject);
+        }
+        console.log(currentProject)
         let newTask = taskInput.value;
-        if  (currentProject.tasks.find(task => newTask == task.title)) {
-            alert("The task name cannot be blank or in use. Try a new task name.");
-            displayTaskInput();
-            clearInput();
+        if (newTask === "") {
+            alert("The task name cannot be blank. Try a new task name."); 
             return;
-        };
+        } else if  (currentProject.tasks.find(task => newTask == task.title)) {
+                alert("The task name cannot in use. Try a new task name.");
+                displayTaskInput();
+                clearInput();
+                return;
+        }
         let task = new Task(newTask, "", false);
         currentProject.tasks.push(task)
         //dom creation of projects
@@ -237,23 +250,80 @@ function displayTask(currentProject)  {
                 let newTaskDiv = document.createElement('div'); 
                 newTaskDiv.className="fakeproject";
                 let leftDiv = document.createElement('div');
-                let checkBox = document.createElement('input');
+                let checkBox = document.createElement('input')
                 checkBox.setAttribute('type','checkbox');
                 checkBox.id="taskcheckbox";
                 let p = document.createElement('p');
+                let updateTaskName = document.createElement('input');
                 p.textContent = task.title;
-                leftDiv.appendChild(checkBox);
-                leftDiv.appendChild(p);
-                leftDiv.className = "fakeproject-left";
-                newTaskDiv.appendChild(leftDiv);
                 let rightDiv = document.createElement('div');
                 let date = document.createElement('input');
                 date.setAttribute('type', 'date');
+                date.min = new Date().toLocaleDateString('en-ca');
                 date.id="taskdate";
                 let removeTask = document.createElement('button');
                 removeTask.type='submit';
                 removeTask.className="taskremove";
-                removeTask.textContent="X"
+                removeTask.textContent="X";
+
+                //Handles task completion.
+                if (task.complete === true)    {
+                    checkBox.disabled = true;
+                        p.innerHTML = `<del>` + task.title + `</del>`;
+                        date.disabled = true;
+                }
+
+                p.addEventListener('click', ()  =>  {
+                    p.style.display = 'none';
+                    updateTaskName.setAttribute('type','text');
+                    updateTaskName.id="task-name-input";
+                    updateTaskName.placeholder = "New Task Name"
+                    updateTaskName.style.display = 'flex';
+                    leftDiv.appendChild(updateTaskName);
+                    p.style.display = 'none'
+                })
+
+                checkBox.addEventListener('click', () =>   {
+                    if (task.complete == true)  {
+                        task.complete = false;
+                    } else task.complete = true;
+                    console.log(task.complete)
+                    displayTask(currentProject)
+                })
+
+                updateTaskName.addEventListener('keypress', function (e) {
+                    if(e.key === 'Enter')   {
+                        let newTaskName = updateTaskName.value;
+                        if (newTaskName === "") {
+                            alert("The task name cannot be blank. Try a new task name."); 
+                            return;
+                        } else if  (currentProject.tasks.find(task => newTaskName == task.title)) {
+                                alert("The task name cannot in use. Try a new task name.");
+                                clearInput();
+                                return;
+                        }
+                        task.title = newTaskName;
+                        displayTask(currentProject)
+                    }
+                })
+
+                date.addEventListener('change', () =>   {
+                    console.log(date.value)
+                })
+
+
+                removeTask.addEventListener('click', () =>  {
+                    let taskIndex = currentProject.tasks.findIndex((task) => task.title == p.textContent);
+                    currentProject.tasks.splice(taskIndex, 1);
+                    console.log(currentProject.tasks)
+                    displayTask(currentProject)
+                })
+                
+
+                leftDiv.appendChild(checkBox);
+                leftDiv.appendChild(p);
+                leftDiv.className = "fakeproject-left";
+                newTaskDiv.appendChild(leftDiv);
                 rightDiv.appendChild(date);
                 rightDiv.appendChild(removeTask);
                 rightDiv.className = "fakeproject-right";
@@ -261,7 +331,6 @@ function displayTask(currentProject)  {
                 projectTasks.appendChild(newTaskDiv)
         })
 }
-
 
 
 

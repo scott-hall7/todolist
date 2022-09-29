@@ -250,7 +250,6 @@ button:hover    {
 }
 
 #add-task-button    {
-    display: none;
     justify-content: center;
     align-items: center;
     width: 25%;
