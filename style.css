@@ -1,0 +1,424 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+  min-height: 100%;
+}
+
+button:hover    {
+    cursor: pointer;
+}
+
+body{
+    margin: 0;
+}
+
+.header {   
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(152, 214, 176, 0.575);
+  min-width: 400px;
+}
+
+#hamburger-menu {
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+#hamburger-menu:hover {
+    transform: scale(1.10);
+    cursor: pointer;
+}
+
+#hamburger-menu .bar    {
+    height: 5px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1.5fr 5fr;
+  height: 100%;
+  min-height: calc(100vh - 109.5px);
+}
+
+/* Sidebar CSS */
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  background-color: rgb(241, 232, 221);
+  min-width: 200px;
+  min-height: 100%;
+}
+
+#generalnav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-button {
+  display: flex;
+  width: 75%;
+  align-items: center;
+  gap: 5px;
+  background-color: rgb(241, 232, 221);
+  border: none;
+  font-size: 1.15em;
+  border-radius: 5px;
+  padding: 5px 0px;
+  margin-left: 20px;
+}
+
+.project-button:hover {
+  cursor: pointer;
+  background-color: rgb(224, 214, 200);
+}
+
+.active-project {
+    background-color: rgb(224, 214, 200);;
+}
+
+.dot {
+  width: 5%;
+}
+
+#generalnav h1 {
+  color: #ff7843;
+  text-decoration: underline;
+  margin: 20px;
+}
+
+#add-project-button {
+  display: flex;
+  justify-content: center;
+  width: 75%;
+  margin: 30px 0px 80px 20px;
+  background-color:rgba(152, 214, 176, 0.575);
+  border: none;
+  font-size: 1.15em;
+  border-radius: 5px;
+  padding: 5px 0px;
+}
+
+#add-project-button:hover {
+    background-color:rgba(126, 196, 153, 0.575);
+    cursor: pointer;
+}
+
+#add-project-input  {
+    display: none;
+    width: 75%;
+    flex-direction: column;
+    padding: 15px;
+    margin-top: 30px;
+    margin-left: 20px;
+    background-color: rgb(221, 211, 200);
+    gap: 10px;
+    border-radius: 5px;
+}
+
+#project-input  {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#project-input-buttons  {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#project-input-buttons button   {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+#project-input-buttons button:hover   {
+    cursor: pointer;
+    transform: scale(1.01);
+} 
+
+#project-add-button {
+    background-color: rgba(152, 214, 176, 0.575);
+}
+
+#project-cancel-button  {
+    background-color: #f89068;
+}
+
+#edit-project-info  {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+}
+
+#update-projectname-input {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 43px;
+}
+
+#update-projectname-button {
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 1.15em;
+    border-radius: 5px;
+}
+
+/* Main Tasks CSS */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 100px;
+  min-width: 300px;
+}
+
+#project-title  {
+    display: flex;
+    justify-content: space-between;
+}
+
+#active-project-buttons {
+    display: none;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#editimage  {
+    width: 30px;
+}
+
+#project-tasks  {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 10px
+}
+
+.fakeproject    {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1em;
+    width: 100%;
+    background-color: rgb(233, 233, 233);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.fakeproject-left   {
+    display: flex;
+    gap: 10px;
+}
+
+.fakeproject-right  {
+    display: flex;
+    gap: 10px;
+}
+
+.taskremove {
+    padding: 2px;
+    border: 0;
+    background-color: rgb(233, 233, 233);
+
+}
+
+.taskremove:hover   {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#add-task   {
+    margin-top: 30px;
+}
+
+#add-task-button    {
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    border: none;
+    font-size: 1.15em;
+    border-radius: 5px;
+    padding: 5px 0px;
+    min-width: 90.5px;
+    background-color: rgb(231, 231, 231);
+}
+
+#edit-project-button    {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    border: none;
+    font-size: 1.15em;
+    border-radius: 5px;
+    background-color: #d3d3d3;
+}
+
+#edit-project-button:hover    {
+    cursor: pointer;
+    background-color: #c2c2c2;
+    transform: scale(1.1);
+}
+
+#delete-project-button    {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    padding: 0px 14px;
+    background-color: #f89068;
+}
+
+#delete-project-button:hover   {
+    cursor: pointer;
+    background-color: #e4855f;
+    transform: scale(1.1);
+}
+
+#add-task-button:hover  {
+    cursor: pointer;
+    background-color: rgb(196, 196, 196);
+}
+
+#add-task-input {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    padding: 15px;
+    background-color: rgb(231, 231, 231);
+    gap: 10px;
+    border-radius: 5px;
+}
+
+#task-input  {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#task-input-buttons  {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+#task-input-buttons button   {
+    padding: 10px;
+    border: 1px solid black;
+    width: 33%;
+}
+
+#task-input-buttons button:hover   {
+    cursor: pointer;
+    transform: scale(1.01);
+} 
+
+#task-add-button {
+    background-color: rgba(152, 214, 176, 0.575);
+}
+
+#task-cancel-button  {
+    background-color: #f89068;
+}
+
+.datetext   {
+    display: none;
+}
+
+/* Footer CSS */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #f89068;
+  padding: 5px 0px;
+}
+
+.footer h4 a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.footer h4 a:hover {
+  text-decoration: underline;
+}
+
+
+/*Media Query for hamburger menu*/
+@media (min-width: 601px)   {
+   
+    #sidebar  {
+        display: flex;
+    }
+}
+
+@media (max-width: 600px)   {
+
+    #sidebar  {
+        display: none;
+    }
+
+    #generalnav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-items: center;
+    }
+
+    #generalnav > *  {
+        margin: 0;
+    }
+
+    .main-content   {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .project-button {
+        display: block;
+        min-width: 150px;
+        margin: 0;
+        width: 80%;
+    }
+
+    #projects > *   {
+        margin: 0;
+    }
+}
+

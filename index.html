@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=OpenSans"
+    />
+  </head>
+  <body>
+    <!--Header-->
+    <header class="header">
+      <div id="headerlogo">
+        <img src="images/badge.png" alt="checkmark" />
+      </div>
+      <div id="headertext">
+        <h1>To Do It</h1>
+      </div>
+      <!-- Responsive menu-->
+      <div id="hamburger-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </header>
+
+    <!--Main Content-->
+    <main>
+      <div class="main-content">
+        <div id="sidebar">
+          <div id="generalnav">
+            <button type="submit" class="project-button" id="all-tasks-button">
+              <img
+                src="images/fiber_manual_record_FILL0_wght400_GRAD0_opsz48.png"
+                class="dot"
+                alt="dot"
+              />General To Dos
+            </button>
+            <h1>Projects</h1>
+              <div id="projects"> <!-- Where Projects will be added-->
+              </div> 
+              <div id="add-project">
+                <button
+                  type="submit"
+                  class="add-project-button"
+                  id="add-project-button"
+                > + Add Project
+                </button>
+                <div id="add-project-input">
+                  <input type="text" id="project-input" placeholder="Project Name">
+                    <div id="project-input-buttons">
+                      <button type="submit" id="project-add-button" class="project-input-button">Add</button>
+                      <button type="submit" id="project-cancel-button" class="project-input-button">Cancel</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content">
+            <div id="project-title">
+              <h1 id="project-display-name">General To Dos</h1>
+              <div id="edit-project-info">
+                <input type="text" id="update-projectname-input" placeholder="Project Name">
+                <button type="submit" id="update-projectname-button">Update</button>
+              </div>
+              <div id="active-project-buttons">
+                <button
+                  type="submit"
+                  id="edit-project-button"
+                ><img src="images/edit_FILL0_wght400_GRAD0_opsz48.png" id="editimage" alt="editimage">
+                </button>
+                <button
+                  type="submit"
+                  id="delete-project-button"
+                > X
+                </button>
+              </div>
+            </div>
+            <div id="project-tasks">  <!-- Where Tasks will be added-->
+            </div>
+            <div id="add-task">
+              <button
+                type="submit"
+                id="add-task-button"
+              > + Add Task
+              </button>
+              <div id="add-task-input">
+                <input type="text" id="task-input" placeholder="Task Name">
+                  <div id="task-input-buttons">
+                    <button type="submit" id="task-add-button" class="task-input-button">Add</button>
+                    <button type="submit" id="task-cancel-button" class="task-input-button"">Cancel</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!--Footer-->
+    <footer class="footer">
+      <div class="footertext">
+        <h4>
+          <a href="https://github.com/scott-hall7">Created By: scott-hall7</a>
+        </h4>
+      </div>
+      <div class="footerlogo"></div>
+      <img src="images/github-logo.png" alt="github logo" />
+    </footer>
+  </body>
+</html>
